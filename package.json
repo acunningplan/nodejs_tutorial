@@ -1,0 +1,27 @@
+{
+  "name": "nodejs_tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "babel-watch src/app.js",
+    "build": "babel src --out-dir lib",
+    "serve": "node lib/app.js"
+  },
+  "author": "James Leung",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5"
+  },
+  "dependencies": {
+    "babel-watch": "^7.0.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "lodash": "^4.17.15"
+  }
+}
