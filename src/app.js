@@ -1,24 +1,23 @@
 import express from "express";
-import path from "path";
+import bodyParser from "body-parser";
+
+import people from "./routes/people";
 
 const app = express();
 
-// app.use("/public", express.static(path.join(__dirname, "static")));
+// Use "people" routes
+app.use("/people", people);
+
+app.use(bodyParser.json());
+app.use((req, res, next) => {
+  req.kiwi = "kiwi";
+  console.log(req.url, req.method);
+  next();
+});
 
 app.get("/", (req, res) => {
-  console.log(path.join(__dirname, "static", "index.html"));
-  res.sendFile(path.join(__dirname, "static", "index.html"));
-});
-
-app.get("/example", (req, res) => {
-  res.send("Hitting example route");
-});
-
-app.get("/example/:name/:age", (req, res) => {
-  console.log(req.params);
-  console.log(req.query);
-  const { name, age } = req.params;
-  res.send(name + ": " + age);
+  console.log(req.kiwi);
+  res.send("You have applied a middleware");
 });
 
 app.listen(3001);

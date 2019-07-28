@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+  <title>Title here</title>
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous"
+  />
+</head>
+<body>
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <% if(data.loggedIn) { %>
+      <h2>You are logged in as: <%= data.username %></h2>
+      <% } %>
+      <h1>You searched for: <%= data.userQuery %></h1>
+      <ul>
+        <% data.searchResults.forEach(result=> { %>
+        <li><%= result %></li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+</body>
